@@ -1,2 +1,2 @@
-# CS-766-Image-Inpainting-Project
-Semester Project for UW Madison's CS 766 – Computer Vision course.
+# CS-766-Project-Webpage
+Project webpage for UW Madison's CS 766 – Computer Vision course.

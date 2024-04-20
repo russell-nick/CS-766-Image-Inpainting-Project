@@ -1,0 +1,7 @@
+title: Context-Aware Image Inpainting for Automatic Object Removal
+description: Project Webpage for UW Madison's CS 766 – Computer Vision
+theme: jekyll-theme-slate
+full-width: true
+markdown: kramdown
+usemathjax: true
+mathjax: true
