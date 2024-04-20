@@ -32,35 +32,35 @@ A deep learning approach with a generator, two discriminators, and an autoencode
 ### Context Encoders Background
 The Context Encoders model seeks to reconstruct more realistic images by attempting to understand the context of the image based on the surrounding structure. The basic architecture uses an encoder and decoder pipeline as shown below. The encoder takes an input image with missing regions and produces a latent feature representation of that image, which the decoder uses to produce the missing image content.
 <p align="center">
-<img width="800" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Context Encoders/context_encoder_architecture.png">
+<img width="800" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Context Encoders/context_encoder_architecture.png">
   <center><em>Context Encoders Architecture</em></center>
 </p>
 
 An important aspect of Context Encoders is the loss function. Instead of training the model with standard pixel-wise reconstruction loss, an adversarial loss factor is added to produce much sharper features. Context Encoders uses the loss function $$L = \lambda_{adv}\mathcal{L}_{adv} + \lambda_{rec}\mathcal{L}_{rec}$$ with Binary Cross-Entropy (BCE) Adversarial and L2 Reconstruction losses.
 
 <p align="center">
-<img width="600" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Context Encoders/Context Encoders Example.png">
+<img width="600" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Context Encoders/Context Encoders Example.png">
   <center><em>Context Encoders Example</em></center>
 </p>
 
 Although the adversarial loss adds sharp features, these features are often incoherent or have semantically little to do with the input image (as shown below). Combining this with a reconstruction loss that offers good structure but smooth or blurry images results in a an image with both good structure and coherent, sharp features.
 <div align="center">
   <figure style="display:inline-block;padding-right:15px">
-      <img width="250" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Context Encoders/context_encoder_masked.png">
+      <img width="250" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Context Encoders/context_encoder_masked.png">
       <figcaption style="text-align:center;">Input</figcaption>
   </figure>
   <figure style="display:inline-block;">
-      <img width="250" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Context Encoders/context_encoder_L2.png">
+      <img width="250" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Context Encoders/context_encoder_L2.png">
       <figcaption style="text-align:center;">L2</figcaption>
   </figure> 
 </div>
 <div align="center">
   <figure style="display:inline-block;padding-right:15px">
-      <img width="250" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Context Encoders/context_encoder_adv.png">
+      <img width="250" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Context Encoders/context_encoder_adv.png">
       <figcaption style="text-align:center;">Adversarial</figcaption>
   </figure>
   <figure style="display:inline-block;">
-      <img width="250" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Context Encoders/context_encoder_joint.png">
+      <img width="250" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Context Encoders/context_encoder_joint.png">
       <figcaption style="text-align:center;">Joint</figcaption>
   </figure>
 </div>
@@ -82,7 +82,7 @@ Below is a list of experiments and modifications that we made:
 ### Datasets
 For the image inpainting task, we used the MiniPlaces dataset, which is a subset of MIT’s Places dataset that only contains 100,000 128x128 images from 100 scene categories.
 <p align="center">
-<img width="800" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/teaser.jpg">
+<img width="800" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/teaser.jpg">
   <center><em>MiniPlaces Example Images</em></center>
 </p>
 
@@ -94,11 +94,11 @@ Since the image inpainting model is generating pixels to replace missing areas o
 Two standard quantitative metrics for measuring image inpainting performance [7] are given below: <br>
 - Peak signal-to-noise ratio (PSNR): Measures the quality of image reconstruction.
   <p align="center">
-    <img width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Loss Functions/PSNR.png">
+    <img width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Loss Functions/PSNR.png">
   </p>
 - Structural Similarity Index (SSIM):  Measures the visual similarity between images.
   <p align="center">
-    <img width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Loss Functions/SSIM.png">
+    <img width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Loss Functions/SSIM.png">
   </p>
 
 ## Initial Results
@@ -109,40 +109,40 @@ The Context Encoders baseline and this experimental L2 adversarial and L1 recons
 <!---The results can be seen in Figures 3 and 4. Since L2 and L1 were used as reconstruction losses, we also measured the L2 and L1 loss of each reconstructed image (shown in Figure 5).-->
 
 <p align="center">
-<img width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Inpainting_Outputs/original_grid.png">
-<img width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Inpainting_Outputs/masked_grid.png">
+<img width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/original_grid.png">
+<img width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/masked_grid.png">
   <center><em>The left side shows 64 chosen validation images and the right shows the masked input.</em></center>
 </p>
 
 <p align="center">
-<img width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Inpainting_Outputs/Baseline/bce_inpainted_images_grid.png">
-<img width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Inpainting_Outputs/L2 Adv + L1 Recon/inpainted_images_grid.png">
+<img width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/Baseline/bce_inpainted_images_grid.png">
+<img width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/L2 Adv + L1 Recon/inpainted_images_grid.png">
   <center><em>Left: Baseline Context Encoders model. Right: L2 Adversarial + L1 Reconstruction model</em></center>
 </p>
 
 A few examples are chosen to demonstrate some of the patchiness / artifacts present in the baseline Context Encoders model and to show the importance of using an adversarial loss with no smoothing effect in order to keep the sharp features produced by the main Context Encoders loss function.
 
 <p align="center">
-<img width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Inpainting_Outputs/Baseline/inpainted_00000064.jpg">
-<img width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Inpainting_Outputs/Baseline/inpainted_00000119.jpg">
-<img width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Inpainting_Outputs/L2 Adv + L1 Recon/inpainted_00000064.jpg">
-<img width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Inpainting_Outputs/L2 Adv + L1 Recon/inpainted_00000119.jpg">
+<img width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/Baseline/inpainted_00000064.jpg">
+<img width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/Baseline/inpainted_00000119.jpg">
+<img width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/L2 Adv + L1 Recon/inpainted_00000064.jpg">
+<img width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/L2 Adv + L1 Recon/inpainted_00000119.jpg">
   <center><em>Top: Base Context Encoders. Bottom: $\mathcal{L}_{adv}=\mathcal{L}_{L2},\mathcal{L}_{rec}=\mathcal{L}_{L1}$.</em></center>
 </p>
 
 <p align="center">
-<img width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Inpainting_Outputs/Baseline/inpainted_00000618.jpg">
-<img width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Inpainting_Outputs/Baseline/inpainted_00003823.jpg">
-<img width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Inpainting_Outputs/L2 Adv + L1 Recon/inpainted_00000618.jpg">
-<img width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Inpainting_Outputs/L2 Adv + L1 Recon/inpainted_00003823.jpg">
+<img width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/Baseline/inpainted_00000618.jpg">
+<img width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/Baseline/inpainted_00003823.jpg">
+<img width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/L2 Adv + L1 Recon/inpainted_00000618.jpg">
+<img width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/L2 Adv + L1 Recon/inpainted_00003823.jpg">
   <center><em>Top: Base Context Encoders. Bottom: $\mathcal{L}_{adv}=\mathcal{L}_{L2},\mathcal{L}_{rec}=\mathcal{L}_{L1}$.</em></center>
 </p>
 
 <p align="center">
-<img width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Inpainting_Outputs/Baseline/inpainted_00004299.jpg">
-<img width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Inpainting_Outputs/Baseline/inpainted_00004560.jpg">
-<img width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Inpainting_Outputs/L2 Adv + L1 Recon/inpainted_00004299.jpg">
-<img width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Inpainting_Outputs/L2 Adv + L1 Recon/inpainted_00004560.jpg">
+<img width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/Baseline/inpainted_00004299.jpg">
+<img width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/Baseline/inpainted_00004560.jpg">
+<img width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/L2 Adv + L1 Recon/inpainted_00004299.jpg">
+<img width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/L2 Adv + L1 Recon/inpainted_00004560.jpg">
   <center><em>Top: Base Context Encoders. Bottom: $\mathcal{L}_{adv}=\mathcal{L}_{L2},\mathcal{L}_{rec}=\mathcal{L}_{L1}$.</em></center>
 </p>
 
@@ -162,161 +162,161 @@ Note that the factor of $$(1-\mathcal{L}_{SSIM})$$ is used since we want to maxi
 Now we demonstrate the effectiveness of our proposed solution. From what was tested, $\lambda_{L1}=0.5, \lambda_{SSIM}=0.5$ gives the best results, but different factors of SSIM could potentially perform better (probably with SSIM slightly less than 0.5, but still significant enough). First we show a side-by-side comparison of the Context Encoders model and our variation with the joint reconstruction loss designed for visual appearances.
 
 <p align="center">
-<img width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Inpainting_Outputs/Baseline/bce_inpainted_images_grid.png">
-<img width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Inpainting_Outputs/0.5L1 + 0.5SSIM/inpainted_images_grid.png">
+<img width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/Baseline/bce_inpainted_images_grid.png">
+<img width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/0.5L1 + 0.5SSIM/inpainted_images_grid.png">
   <center><em>Left: Baseline Context Encoders model. Right: $\lambda_{L1}=0.5, \lambda_{SSIM}=0.5$ model</em></center>
 </p>
 
 As before, a few examples are chosen to demonstrate the visual improvements that our proposed solution provides.
 
 <p align="center">
-<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Loss Functions/baseline_context_encoders.png">
-  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Inpainting_Outputs/Baseline/inpainted_00004047.jpg">
+<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Loss Functions/baseline_context_encoders.png">
+  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/Baseline/inpainted_00004047.jpg">
   <span style="display:block;float:right;"> L1: 0.0774 <br> L2: 0.0386 <br> PSNR: 14.1375 <br> SSIM: 0.7189</span> <br>
-<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Loss Functions/L2_L1_Loss.png">
-  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Inpainting_Outputs/L2 Adv + L1 Recon/inpainted_00004047.jpg">
+<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Loss Functions/L2_L1_Loss.png">
+  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/L2 Adv + L1 Recon/inpainted_00004047.jpg">
   <span style="display:block;float:right;"> L1: 0.0698 <br> L2: 0.0347 <br> PSNR: 14.5935 <br> SSIM: 0.7403</span> <br>
-<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Loss Functions/0.3L1_0.7SSIM_Loss.png">
-  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Inpainting_Outputs/0.3L1 + 0.7SSIM/inpainted_00004047.jpg">
+<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Loss Functions/0.3L1_0.7SSIM_Loss.png">
+  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/0.3L1 + 0.7SSIM/inpainted_00004047.jpg">
   <span style="display:block;float:right;"> L1: 0.0734 <br> L2: 0.0396 <br> PSNR: 14.0252 <br> SSIM: 0.7287</span> <br>
-<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Loss Functions/0.5L1_0.5SSIM_Loss.png">
-  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Inpainting_Outputs/0.5L1 + 0.5SSIM/inpainted_00004047.jpg">
+<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Loss Functions/0.5L1_0.5SSIM_Loss.png">
+  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/0.5L1 + 0.5SSIM/inpainted_00004047.jpg">
   <span style="display:block;float:right;"> L1: 0.0744 <br> L2: 0.0400 <br> PSNR: 13.9811 <br> SSIM: 0.7345</span> <br>
-<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Loss Functions/0.005L1_0.995SSIM_Loss.png">
-  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Inpainting_Outputs/0.005L1 + 0.995SSIM/inpainted_00004047.jpg">
+<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Loss Functions/0.005L1_0.995SSIM_Loss.png">
+  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/0.005L1 + 0.995SSIM/inpainted_00004047.jpg">
   <span style="display:block;float:right;"> L1: 0.0844 <br> L2: 0.0552 <br> PSNR: 12.5826 <br> SSIM: 0.7232</span> <br>
   <center><em>.</em></center>
 </p> <br>
 
 <p align="center">
-<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Loss Functions/baseline_context_encoders.png">
-  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Inpainting_Outputs/Baseline/inpainted_00000119.jpg">
+<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Loss Functions/baseline_context_encoders.png">
+  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/Baseline/inpainted_00000119.jpg">
   <span style="display:block;float:right;"> L1: 0.0551 <br> L2: 0.0199 <br> PSNR: 17.0017 <br> SSIM: 0.7063</span> <br>
-<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Loss Functions/L2_L1_Loss.png">
-  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Inpainting_Outputs/L2 Adv + L1 Recon/inpainted_00000119.jpg">
+<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Loss Functions/L2_L1_Loss.png">
+  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/L2 Adv + L1 Recon/inpainted_00000119.jpg">
   <span style="display:block;float:right;"> L1: 0.0511 <br> L2: 0.0180 <br> PSNR: 17.4431 <br> SSIM: 0.7164</span> <br>
-<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Loss Functions/0.3L1_0.7SSIM_Loss.png">
-  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Inpainting_Outputs/0.3L1 + 0.7SSIM/inpainted_00000119.jpg">
+<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Loss Functions/0.3L1_0.7SSIM_Loss.png">
+  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/0.3L1 + 0.7SSIM/inpainted_00000119.jpg">
   <span style="display:block;float:right;"> L1: 0.0562 <br> L2: 0.0221 <br> PSNR: 16.5612 <br> SSIM: 0.7139</span> <br>
-<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Loss Functions/0.5L1_0.5SSIM_Loss.png">
-  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Inpainting_Outputs/0.5L1 + 0.5SSIM/inpainted_00000119.jpg">
+<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Loss Functions/0.5L1_0.5SSIM_Loss.png">
+  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/0.5L1 + 0.5SSIM/inpainted_00000119.jpg">
   <span style="display:block;float:right;"> L1: 0.0560 <br> L2: 0.0213 <br> PSNR: 16.7069 <br> SSIM: 0.7128</span> <br>
-<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Loss Functions/0.005L1_0.995SSIM_Loss.png">
-  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Inpainting_Outputs/0.005L1 + 0.995SSIM/inpainted_00000119.jpg">
+<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Loss Functions/0.005L1_0.995SSIM_Loss.png">
+  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/0.005L1 + 0.995SSIM/inpainted_00000119.jpg">
   <span style="display:block;float:right;"> L1: 0.0661 <br> L2: 0.0298 <br> PSNR: 15.2601 <br> SSIM: 0.7060</span> <br>
   <center><em>.</em></center>
 </p>
 
 <p align="center">
-<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Loss Functions/baseline_context_encoders.png">
-  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Inpainting_Outputs/Baseline/inpainted_00003823.jpg">
+<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Loss Functions/baseline_context_encoders.png">
+  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/Baseline/inpainted_00003823.jpg">
   <span style="display:block;float:right;"> L1: 0.0509 <br> L2: 0.0209 <br> PSNR: 16.8047 <br> SSIM: 0.7701</span> <br>
-<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Loss Functions/L2_L1_Loss.png">
-  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Inpainting_Outputs/L2 Adv + L1 Recon/inpainted_00003823.jpg">
+<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Loss Functions/L2_L1_Loss.png">
+  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/L2 Adv + L1 Recon/inpainted_00003823.jpg">
   <span style="display:block;float:right;"> L1: 0.0415 <br> L2: 0.0181 <br> PSNR: 17.4288 <br> SSIM: 0.8060</span> <br>
-<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Loss Functions/0.3L1_0.7SSIM_Loss.png">
-  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Inpainting_Outputs/0.3L1 + 0.7SSIM/inpainted_00003823.jpg">
+<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Loss Functions/0.3L1_0.7SSIM_Loss.png">
+  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/0.3L1 + 0.7SSIM/inpainted_00003823.jpg">
   <span style="display:block;float:right;"> L1: 0.0507 <br> L2: 0.0224 <br> PSNR: 16.4965 <br> SSIM: 0.7920</span> <br>
-<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Loss Functions/0.5L1_0.5SSIM_Loss.png">
-  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Inpainting_Outputs/0.5L1 + 0.5SSIM/inpainted_00003823.jpg">
+<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Loss Functions/0.5L1_0.5SSIM_Loss.png">
+  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/0.5L1 + 0.5SSIM/inpainted_00003823.jpg">
   <span style="display:block;float:right;"> L1: 0.0448 <br> L2: 0.0205 <br> PSNR: 16.8840 <br> SSIM: 0.8065</span> <br>
-<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Loss Functions/0.005L1_0.995SSIM_Loss.png">
-  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Inpainting_Outputs/0.005L1 + 0.995SSIM/inpainted_00003823.jpg">
+<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Loss Functions/0.005L1_0.995SSIM_Loss.png">
+  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/0.005L1 + 0.995SSIM/inpainted_00003823.jpg">
   <span style="display:block;float:right;"> L1: 0.0522 <br> L2: 0.0290 <br> PSNR: 15.3750 <br> SSIM: 0.7975</span> <br>
   <center><em>.</em></center>
 </p>
 
 <p align="center">
-<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Loss Functions/baseline_context_encoders.png">
-  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Inpainting_Outputs/Baseline/inpainted_00002919.jpg">
+<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Loss Functions/baseline_context_encoders.png">
+  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/Baseline/inpainted_00002919.jpg">
   <span style="display:block;float:right;"> L1: 0.0691 <br> L2: 0.0296 <br> PSNR: 15.2889 <br> SSIM: 0.7111</span> <br>
-<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Loss Functions/L2_L1_Loss.png">
-  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Inpainting_Outputs/L2 Adv + L1 Recon/inpainted_00002919.jpg">
+<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Loss Functions/L2_L1_Loss.png">
+  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/L2 Adv + L1 Recon/inpainted_00002919.jpg">
   <span style="display:block;float:right;"> L1: 0.0648 <br> L2: 0.0268 <br> PSNR: 15.7234 <br> SSIM: 0.7194</span> <br>
-<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Loss Functions/0.3L1_0.7SSIM_Loss.png">
-  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Inpainting_Outputs/0.3L1 + 0.7SSIM/inpainted_00002919.jpg">
+<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Loss Functions/0.3L1_0.7SSIM_Loss.png">
+  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/0.3L1 + 0.7SSIM/inpainted_00002919.jpg">
   <span style="display:block;float:right;"> L1: 0.0640 <br> L2: 0.0279 <br> PSNR: 15.5403 <br> SSIM: 0.7256</span> <br>
-<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Loss Functions/0.5L1_0.5SSIM_Loss.png">
-  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Inpainting_Outputs/0.5L1 + 0.5SSIM/inpainted_00002919.jpg">
+<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Loss Functions/0.5L1_0.5SSIM_Loss.png">
+  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/0.5L1 + 0.5SSIM/inpainted_00002919.jpg">
   <span style="display:block;float:right;"> L1: 0.0669 <br> L2: 0.0289 <br> PSNR: 15.3979 <br> SSIM: 0.7197</span> <br>
-<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Loss Functions/0.005L1_0.995SSIM_Loss.png">
-  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Inpainting_Outputs/0.005L1 + 0.995SSIM/inpainted_00002919.jpg">
+<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Loss Functions/0.005L1_0.995SSIM_Loss.png">
+  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/0.005L1 + 0.995SSIM/inpainted_00002919.jpg">
   <span style="display:block;float:right;"> L1: 0.0789 <br> L2: 0.0415 <br> PSNR: 13.8219 <br> SSIM: 0.7187</span> <br>
   <center><em>.</em></center>
 </p>
 
 <p align="center">
-<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Loss Functions/baseline_context_encoders.png">
-  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Inpainting_Outputs/Baseline/inpainted_00004299.jpg">
+<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Loss Functions/baseline_context_encoders.png">
+  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/Baseline/inpainted_00004299.jpg">
   <span style="display:block;float:right;"> L1: 0.0652 <br> L2: 0.0277 <br> PSNR: 15.5769 <br> SSIM: 0.7183</span> <br>
-<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Loss Functions/L2_L1_Loss.png">
-  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Inpainting_Outputs/L2 Adv + L1 Recon/inpainted_00004299.jpg">
+<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Loss Functions/L2_L1_Loss.png">
+  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/L2 Adv + L1 Recon/inpainted_00004299.jpg">
   <span style="display:block;float:right;"> L1: 0.0596 <br> L2: 0.0244 <br> PSNR: 16.1256 <br> SSIM: 0.7237</span> <br>
-<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Loss Functions/0.3L1_0.7SSIM_Loss.png">
-  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Inpainting_Outputs/0.3L1 + 0.7SSIM/inpainted_00004299.jpg">
+<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Loss Functions/0.3L1_0.7SSIM_Loss.png">
+  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/0.3L1 + 0.7SSIM/inpainted_00004299.jpg">
   <span style="display:block;float:right;"> L1: 0.0613 <br> L2: 0.0277 <br> PSNR: 15.5784 <br> SSIM: 0.7278</span> <br>
-<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Loss Functions/0.5L1_0.5SSIM_Loss.png">
-  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Inpainting_Outputs/0.5L1 + 0.5SSIM/inpainted_00004299.jpg">
+<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Loss Functions/0.5L1_0.5SSIM_Loss.png">
+  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/0.5L1 + 0.5SSIM/inpainted_00004299.jpg">
   <span style="display:block;float:right;"> L1: 0.0607 <br> L2: 0.0260 <br> PSNR: 15.8559 <br> SSIM: 0.7234</span> <br>
-<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Loss Functions/0.005L1_0.995SSIM_Loss.png">
-  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Inpainting_Outputs/0.005L1 + 0.995SSIM/inpainted_00004299.jpg">
+<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Loss Functions/0.005L1_0.995SSIM_Loss.png">
+  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/0.005L1 + 0.995SSIM/inpainted_00004299.jpg">
   <span style="display:block;float:right;"> L1: 0.0662 <br> L2: 0.0313 <br> PSNR: 15.0510 <br> SSIM: 0.7267</span> <br>
   <center><em>.</em></center>
 </p>
 
 <p align="center">
-<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Loss Functions/baseline_context_encoders.png">
-  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Inpainting_Outputs/Baseline/inpainted_00004560.jpg">
+<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Loss Functions/baseline_context_encoders.png">
+  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/Baseline/inpainted_00004560.jpg">
   <span style="display:block;float:right;"> L1: 0.0740 <br> L2: 0.0358 <br> PSNR: 14.4571 <br> SSIM: 0.7388</span> <br>
-<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Loss Functions/L2_L1_Loss.png">
-  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Inpainting_Outputs/L2 Adv + L1 Recon/inpainted_00004560.jpg">
+<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Loss Functions/L2_L1_Loss.png">
+  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/L2 Adv + L1 Recon/inpainted_00004560.jpg">
   <span style="display:block;float:right;"> L1: 0.0688 <br> L2: 0.0389 <br> PSNR: 14.1060 <br> SSIM: 0.7421</span> <br>
-<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Loss Functions/0.3L1_0.7SSIM_Loss.png">
-  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Inpainting_Outputs/0.3L1 + 0.7SSIM/inpainted_00004560.jpg">
+<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Loss Functions/0.3L1_0.7SSIM_Loss.png">
+  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/0.3L1 + 0.7SSIM/inpainted_00004560.jpg">
   <span style="display:block;float:right;"> L1: 0.0724 <br> L2: 0.0417 <br> PSNR: 13.8002 <br> SSIM: 0.7382</span> <br>
-<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Loss Functions/0.5L1_0.5SSIM_Loss.png">
-  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Inpainting_Outputs/0.5L1 + 0.5SSIM/inpainted_00004560.jpg">
+<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Loss Functions/0.5L1_0.5SSIM_Loss.png">
+  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/0.5L1 + 0.5SSIM/inpainted_00004560.jpg">
   <span style="display:block;float:right;"> L1: 0.0734 <br> L2: 0.0464 <br> PSNR: 13.3350 <br> SSIM: 0.7479</span> <br>
-<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Loss Functions/0.005L1_0.995SSIM_Loss.png">
-  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Inpainting_Outputs/0.005L1 + 0.995SSIM/inpainted_00004560.jpg">
+<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Loss Functions/0.005L1_0.995SSIM_Loss.png">
+  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/0.005L1 + 0.995SSIM/inpainted_00004560.jpg">
   <span style="display:block;float:right;"> L1: 0.0811 <br> L2: 0.0553 <br> PSNR: 12.5762 <br> SSIM: 0.7232</span> <br>
   <center><em>.</em></center>
 </p>
 
 <p align="center">
-<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Loss Functions/baseline_context_encoders.png">
-  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Inpainting_Outputs/Baseline/inpainted_00000280.jpg">
+<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Loss Functions/baseline_context_encoders.png">
+  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/Baseline/inpainted_00000280.jpg">
   <span style="display:block;float:right;"> L1: 0.0783 <br> L2: 0.0360 <br> PSNR: 14.4411 <br> SSIM: 0.7140</span> <br>
-<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Loss Functions/L2_L1_Loss.png">
-  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Inpainting_Outputs/L2 Adv + L1 Recon/inpainted_00000280.jpg">
+<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Loss Functions/L2_L1_Loss.png">
+  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/L2 Adv + L1 Recon/inpainted_00000280.jpg">
   <span style="display:block;float:right;"> L1: 0.0846 <br> L2: 0.0468 <br> PSNR: 13.2932 <br> SSIM: 0.7185</span> <br>
-<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Loss Functions/0.3L1_0.7SSIM_Loss.png">
-  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Inpainting_Outputs/0.3L1 + 0.7SSIM/inpainted_00000280.jpg">
+<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Loss Functions/0.3L1_0.7SSIM_Loss.png">
+  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/0.3L1 + 0.7SSIM/inpainted_00000280.jpg">
   <span style="display:block;float:right;"> L1: 0.0941 <br> L2: 0.0572 <br> PSNR: 12.4256 <br> SSIM: 0.7129</span> <br>
-<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Loss Functions/0.5L1_0.5SSIM_Loss.png">
-  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Inpainting_Outputs/0.5L1 + 0.5SSIM/inpainted_00000280.jpg">
+<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Loss Functions/0.5L1_0.5SSIM_Loss.png">
+  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/0.5L1 + 0.5SSIM/inpainted_00000280.jpg">
   <span style="display:block;float:right;"> L1: 0.0859 <br> L2: 0.0474 <br> PSNR: 13.2443 <br> SSIM: 0.7118</span> <br>
-<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Loss Functions/0.005L1_0.995SSIM_Loss.png">
-  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Inpainting_Outputs/0.005L1 + 0.995SSIM/inpainted_00000280.jpg">
+<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Loss Functions/0.005L1_0.995SSIM_Loss.png">
+  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/0.005L1 + 0.995SSIM/inpainted_00000280.jpg">
   <span style="display:block;float:right;"> L1: 0.1020 <br> L2: 0.0716 <br> PSNR: 11.4505 <br> SSIM: 0.7136</span> <br>
   <center><em>.</em></center>
 </p>
 
 <p align="center">
-<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Loss Functions/baseline_context_encoders.png">
-  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Inpainting_Outputs/Baseline/inpainted_00006461.jpg">
+<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Loss Functions/baseline_context_encoders.png">
+  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/Baseline/inpainted_00006461.jpg">
   <span style="display:block;float:right;"> L1: 0.0954 <br> L2: 0.0521 <br> PSNR: 12.8282 <br> SSIM: 0.7108</span> <br>
-<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Loss Functions/L2_L1_Loss.png">
-  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Inpainting_Outputs/L2 Adv + L1 Recon/inpainted_00006461.jpg">
+<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Loss Functions/L2_L1_Loss.png">
+  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/L2 Adv + L1 Recon/inpainted_00006461.jpg">
   <span style="display:block;float:right;"> L1: 0.0918 <br> L2: 0.0516 <br> PSNR: 12.8775 <br> SSIM: 0.7213</span> <br>
-<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Loss Functions/0.3L1_0.7SSIM_Loss.png">
-  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Inpainting_Outputs/0.3L1 + 0.7SSIM/inpainted_00006461.jpg">
+<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Loss Functions/0.3L1_0.7SSIM_Loss.png">
+  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/0.3L1 + 0.7SSIM/inpainted_00006461.jpg">
   <span style="display:block;float:right;"> L1: 0.0962 <br> L2: 0.0609 <br> PSNR: 12.1527 <br> SSIM: 0.7269</span> <br>
-<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Loss Functions/0.5L1_0.5SSIM_Loss.png">
-  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Inpainting_Outputs/0.5L1 + 0.5SSIM/inpainted_00006461.jpg">
+<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Loss Functions/0.5L1_0.5SSIM_Loss.png">
+  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/0.5L1 + 0.5SSIM/inpainted_00006461.jpg">
   <span style="display:block;float:right;"> L1: 0.0915 <br> L2: 0.0543 <br> PSNR: 12.6535 <br> SSIM: 0.7365</span> <br>
-<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Loss Functions/0.005L1_0.995SSIM_Loss.png">
-  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Inpainting_Outputs/0.005L1 + 0.995SSIM/inpainted_00006461.jpg">
+<img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Loss Functions/0.005L1_0.995SSIM_Loss.png">
+  <img style="padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/0.005L1 + 0.995SSIM/inpainted_00006461.jpg">
   <span style="display:block;float:right;"> L1: 0.1137 <br> L2: 0.0873 <br> PSNR: 10.5899 <br> SSIM: 0.7164</span> <br>
   <center><em>.</em></center>
 </p>
@@ -326,7 +326,7 @@ To evaluate the general performance of our models, every model was evaluated on 
 <!--- We also tested whether replacing L1 reconstruction loss with L2 -->
 
 <p align="center">
-<img width="700" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Model Losses Table Original.png">
+<img width="700" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Model Losses Table Original.png">
   <center><em> Table of losses per model</em></center>
 </p>
 
@@ -338,9 +338,9 @@ Note that all models are only trained for 40 epochs while they are trained for 5
 ### Mask Extraction
 To automatically remove objects from a scene, we must first detect the objects we want to remove and extract their masks. This is done by using YOLOv8 and combining the masks for all the object types we want to remove.
 <p align="center">
-<img width="275" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Object Removal/car_scene.jpg">
-<img width="275" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Object Removal/predictions.jpg">
-<img width="275" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Object Removal/objects-to-remove-masks.jpg">
+<img width="275" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Object Removal/car_scene.jpg">
+<img width="275" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Object Removal/predictions.jpg">
+<img width="275" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Object Removal/objects-to-remove-masks.jpg">
   <center><em>Extracting Mask of People and Cars.</em></center>
 </p>
 
@@ -348,9 +348,9 @@ To automatically remove objects from a scene, we must first detect the objects w
 A few examples of automatically detecting and removing objects from images are given below. The model being used is the proposed model with $\lambda_{L1}=0.5, \lambda_{SSIM}=0.5$. Note that this model is only trained for 40 epochs, which is 12.5x less than in [context encoders], so the model has not converged. Therefore, the object outlines can still be seen in the images.
 
 <p align="center">
-<img width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Object Removal/inpainted_beach.jpg"><br>
-<img width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Object Removal/inpainted_zoo.jpg"><br>
-<img width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Object Removal/inpainted_cliff.jpg"><br>
+<img width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Object Removal/inpainted_beach.jpg"><br>
+<img width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Object Removal/inpainted_zoo.jpg"><br>
+<img width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Object Removal/inpainted_cliff.jpg"><br>
   <center><em>Automatically Removing Objects.</em></center>
 </p>
 The first two images were taken from online and the last is a personal image.
@@ -359,8 +359,8 @@ The first two images were taken from online and the last is a personal image.
 Currently, removing objects with arbitrary masks sometimes gives strange artifacts or inpaints a near solid color (especially on small objects). However, inpainting a rectangular region of the image still produces results as expected. A potential solution for this would be to implement random masking when training the model. The image inpainting model is currently trained on random rectangular regions of a fixed size.
 
 <p align="center">
-<img width="500" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Object Removal/inpainted_IMG_5101.jpg"><br>
-<img width="500" src="https://raw.githubusercontent.com/russell-nick/CS-766-Project-Webpage/main/assets/images/Object Removal/inpainted_IMG_5101_rectangular.jpg"><br>
+<img width="500" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Object Removal/inpainted_IMG_5101.jpg"><br>
+<img width="500" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Object Removal/inpainted_IMG_5101_rectangular.jpg"><br>
   <center><em>Limitations of object removal (3rd image is the model's entire generated output).</em></center>
 </p>
 
