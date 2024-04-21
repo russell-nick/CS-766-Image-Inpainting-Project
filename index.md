@@ -4,7 +4,7 @@ Course webpage for UW Madison's CS 766 – Computer Vision course.
 -->
 ### People and Links
 *[Nicholas Russell](https://github.com/russell-nick), University of Wisconsin-Madison, Computer Sciences* <br> <br>
-See [here] for the final presentation, [here] for the project code, and [here] for the project demo.
+See [here] for the final presentation, [here](https://github.com/russell-nick/CS-766-Image-Inpainting-Project) for the project code, and [here] for the project demo.
 
 ### Contents
 1. [Introduction](#introduction)
@@ -351,7 +351,7 @@ To evaluate the general performance of our models, every model was evaluated on 
 
 From the above table, we can see that the L2 Adversarial + L1 Reconstruction model performs best quantitatively. However, this model does not produce the most visually appealing images and usually results in blurry results without sharp features. We can see that our proposed joint reconstruction model with $\lambda_{L1}=0.5, \lambda_{SSIM}=0.5$ produces not only significant visual improvements, but also slight quantitative improvements.
 
-Note that all models are only trained for 40 epochs while they are trained for 500 by Pathak *et al.* in [5]. It would be interesting to see how significant both the visual and quantitative differences are if all models are trained until convergence since the visual results are significant for training 12.5x less than required for convergence.
+Note that all models are only trained for 40 epochs while they are trained for 500 by Pathak *et al.* in [5]. It would be interesting to see how significant both the visual and quantitative differences are if all models are trained until convergence since the visual results are significant for training 12.5x less than required for convergence. Training for 40 epochs on the MiniPlaces dataset takes approximately 9 hours on a NVIDIA T4 GPU on Google Colab.
 
 ## Automatic Object Removal
 ### Mask Extraction
@@ -437,3 +437,28 @@ Image Database for Scene Recognition”. In: *IEEE Transactions on Pattern Analy
 
 ## Supplementary Material
 Extra images are provided below in larger versions than above:
+
+<p align="center">
+<img width="800" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/Baseline/bce_inpainted_images_grid.png">
+  <center><em>Baseline Context Encoders Results</em></center>
+</p>
+
+<p align="center">
+<img width="800" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/L2 Adv + L1 Recon/inpainted_images_grid.png">
+  <center><em>$\mathcal{L}_{adv}=\mathcal{L}_{L2},\mathcal{L}_{rec}=\mathcal{L}_{L1}$ Results</em></center>
+</p>
+
+<p align="center">
+<img width="800" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/0.3L1 + 0.7SSIM/inpainted_images_grid.png">
+  <center><em>$\mathcal{L}_{rec}=0.3\mathcal{L}_{L1}+0.7\mathcal{L}_{SSIM}$ Results</em></center>
+</p>
+
+<p align="center">
+<img width="800" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/0.5L1 + 0.5SSIM/inpainted_images_grid.png">
+  <center><em><b>$\mathcal{L}_{rec}=0.5\mathcal{L}_{L1}+0.5\mathcal{L}_{SSIM}$ Results</b></em></center>
+</p>
+
+<p align="center">
+<img width="800" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/0.005L1 + 0.995SSIM/inpainted_images_grid.png">
+  <center><em>$\mathcal{L}_{rec}=0.005\mathcal{L}_{L1}+0.995\mathcal{L}_{SSIM}$ Results</em></center>
+</p>
