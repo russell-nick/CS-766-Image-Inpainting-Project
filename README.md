@@ -101,20 +101,20 @@ There are three different evaluation methods offered:
 1. Evaluate on folders of images:
 This image folder format works similarly to the dataset format described above.
 ```bash
-eval.py --model_checkpoint {path_to_checkpoint} --image_folder_path {path_to_image_folder}
+python eval.py --model_checkpoint {path_to_checkpoint} --image_folder_path {path_to_image_folder}
 ```
 By default, the batch size is set to the total number of images being evaluated, and the number of columns (images per row) is set to $\lceil \sqrt{\text{\\# images}} \rceil$ to get a square grid. To change this, run the following (this should be done if evaluating an entire dataset at once):
 ```bash
-eval.py --model_checkpoint {path_to_checkpoint} --image_folder_path {path_to_image_folder} --batch_size {size} --num_cols {num}
+python eval.py --model_checkpoint {path_to_checkpoint} --image_folder_path {path_to_image_folder} --batch_size {size} --num_cols {num}
 ```
 ---
 2. Evaluate on a single image:
 ```bash
-eval.py --model_checkpoint {path_to_checkpoint} --image_path {path_to_image}
+python eval.py --model_checkpoint {path_to_checkpoint} --image_path {path_to_image}
 ```
 ---
 3. Evaluate on a single image with automatic object removal:
 A list of object classes that are supported by our automatic object removal is given in object_classes.txt. To remove a class of objects, simply add the id after '--remove'. For example, run the following to remove people (0) and cars (2):
 ```bash
-eval.py --model_checkpoint {path_to_checkpoint} --image_path {path_to_image} --remove 0 2
+python eval.py --model_checkpoint {path_to_checkpoint} --image_path {path_to_image} --remove 0 2
 ```

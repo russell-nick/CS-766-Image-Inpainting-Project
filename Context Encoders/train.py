@@ -33,10 +33,8 @@ def load_args():
     parser.add_argument("--lr", type=float, default=0.0002, help="adam: learning rate")
     parser.add_argument("--b1", type=float, default=0.5, help="adam: decay of first order momentum of gradient")
     parser.add_argument("--b2", type=float, default=0.999, help="adam: decay of first order momentum of gradient")
-
     parser.add_argument("--lambda_l1", type=float, default=0.5, help="joint reconstruction: weight of L1 loss")
     parser.add_argument("--lambda_ssim", type=float, default=0.5, help="joint reconstruction: weight of SSIM loss")
-    
     parser.add_argument("--n_cpu", type=int, default=4, help="number of cpu threads to use during batch generation")
     parser.add_argument("--latent_dim", type=int, default=100, help="dimensionality of the latent space")
     parser.add_argument("--img_size", type=int, default=128, help="size of each image dimension")

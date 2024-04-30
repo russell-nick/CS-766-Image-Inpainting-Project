@@ -100,7 +100,7 @@ if args.image_folder_path: # Works for folder of jpgs (also recursively takes im
     num_images = len(glob.glob("%s/**/*.jpg" % args.image_folder_path, recursive=True))
     print("Number of input images:", num_images)
 
-    if not args.batch_size:
+    if args.batch_size == -1:
         args.batch_size = num_images
 
     # If the number of rows is not specified, take the sqrt of the number of images
