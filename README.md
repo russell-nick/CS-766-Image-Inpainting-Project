@@ -1,6 +1,6 @@
 # Context-Aware Image Inpainting for Automatic Object Removal 
 
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1fLbRK4v8gAwTNMn0_JT8cW2twOn1feD5?usp=sharing)
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1fLbRK4v8gAwTNMn0_JT8cW2twOn1feD5?usp=sharing) <br>
 The project webpage is available at https://russell-nick.github.io/CS-766-Image-Inpainting-Project/.
 
 ### Contents
@@ -73,6 +73,8 @@ batch_size: 16
 lr: 0.0002
 b1: 0.05
 b2: 0.999
+lambda_l1: 0.5
+lambda_ssim: 0.5
 latent_dim: 100
 img_size: 128
 mask_size: 64
@@ -101,7 +103,7 @@ This image folder format works similarly to the dataset format described above.
 ```bash
 eval.py --model_checkpoint {path_to_checkpoint} --image_folder_path {path_to_image_folder}
 ```
-By default, the batch size is set to the total number of images being evaluated, and the number of columns (images per row) is set to $\lceil \sqrt{\text{\# images}} \rceil$ to get a square grid. To change this, run the following (this should be done if evaluating an entire dataset at once):
+By default, the batch size is set to the total number of images being evaluated, and the number of columns (images per row) is set to $\lceil \sqrt{\text{\\# images}} \rceil$ to get a square grid. To change this, run the following (this should be done if evaluating an entire dataset at once):
 ```bash
 eval.py --model_checkpoint {path_to_checkpoint} --image_folder_path {path_to_image_folder} --batch_size {size} --num_cols {num}
 ```
