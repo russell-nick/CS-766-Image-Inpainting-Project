@@ -61,7 +61,7 @@ Our code also supports any dataset with the following format:
 |   |   └── category_1
 |   |   └── ...
 ```
-Note that the dataset does not have to have the exact structure. The code works by recursively going down sub-directories when given the root image directory, so you can simply put all images directly into training, test, and validation folders. Currently, onle files with jpg extensions are supported, but this can be quickly changed in datasets.py. 
+Note that the dataset does not have to have the exact structure. The code works by recursively going down sub-directories when given the root image directory, so you can simply put all images directly into training, test, and validation folders. Currently, only files with jpg extensions are supported, but this can be quickly changed in datasets.py. 
 <!-- Files with extensions jpg, jpeg, and png are supported. -->
 
 ## Training
@@ -93,7 +93,7 @@ python train.py --dataset_name {path_to_dataset} --resume {path_to_checkpoint}
 ---
 Example setting checkpoint interval (epochs between saving) and sample interval (batches between samples):
 ```bash
-python train.py --dataset_name {path_to_dataset} --sample_interval {interval} -- checkpoint_interval {interval}
+python train.py --dataset_name {path_to_dataset} --sample_interval {interval} --checkpoint_interval {interval}
 ```
 
 ## Evaluation
@@ -114,7 +114,7 @@ eval.py --model_checkpoint {path_to_checkpoint} --image_path {path_to_image}
 ```
 ---
 3. Evaluate on a single image with automatic object removal:
-A list of object classes that are supported by our automatic object removal is given in [insert filename here]. To remove a class of objects, simply add the id after '--remove'. For example, run the following to remove people (0) and cars (2):
+A list of object classes that are supported by our automatic object removal is given in object_classes.txt. To remove a class of objects, simply add the id after '--remove'. For example, run the following to remove people (0) and cars (2):
 ```bash
 eval.py --model_checkpoint {path_to_checkpoint} --image_path {path_to_image} --remove 0 2
 ```
