@@ -4,7 +4,7 @@ Course webpage for UW Madison's CS 766 – Computer Vision course.
 -->
 ### People and Links
 *[Nicholas Russell](https://github.com/russell-nick), University of Wisconsin-Madison, Computer Sciences* <br> <br>
-See [here] for the final presentation, [here](https://github.com/russell-nick/CS-766-Image-Inpainting-Project) for the project code, and [here] for the project demo.
+See [here](assets/resources/CS 766 Presentation.pdf){:target="_blank"} for the final presentation, [here](https://github.com/russell-nick/CS-766-Image-Inpainting-Project){:target="_blank"} for the project code, and [here](https://colab.research.google.com/drive/1fLbRK4v8gAwTNMn0_JT8cW2twOn1feD5?usp=sharing){:target="_blank"} for the project demo.
 
 ### Contents
 1. [Introduction](#introduction)
@@ -16,7 +16,7 @@ See [here] for the final presentation, [here](https://github.com/russell-nick/CS
 7. [Main Results](#main-results)
 8. [Evaluation](#evaluation)
 9. [Automatic Object Removal](#automatic-object-removal)
-10. [Conclusions](#conclusions)
+10. [Conclusion](#conclusion)
 11. [References](#references)
 12. [Supplementary Material](#supplementary-material)
 
@@ -27,11 +27,6 @@ In this project we delve into image inpainting, a transformative process in digi
 In the realm of digital imagery, the prevalence of damaged or incomplete visuals hampers both aesthetic appreciation and functional analysis. Our project addresses this pervasive issue by focusing on image inpainting, aiming to seamlessly reconstruct missing regions, restore visual integrity and enhance image quality. The problem at hand is the compromised visual experience caused by occlusions, corruption, or data loss. We aspire to empower users with a comprehensive and unblemished view of images, fostering enhanced aesthetics and facilitating accurate computer vision. Through advanced inpainting techniques, our endeavor seeks to mitigate the disruptive impact of missing visual information, presenting a solution that contributes to improved image quality, analysis, and overall user experience.
 
 ## Previous Work
-<!--
-A large variety of image inpainting techniques have been explored in recent research. The main categories of image inpainting fall under traditional sequential-based approaches or deep learning approaches. We will focus more on deep learning approaches which use CNNs or GANs to generate missing pixels instead of filling regions patch-by-patch with a sequential algorithm.
-
-A deep learning approach with a generator, two discriminators, and an autoencoder architecture with skip connections for improved prediction power is proposed in [1]. Using Wasserstein GAN loss [13], the model learns to realistically complete missing areas in images, as shown on CelebA and LFW datasets. A two-step method (E2I) using edge generation followed by edge-based image completion is proposed in [2]. With this method, a deep network extracts edges, predicts missing edge regions, and then fills in pixels guided by the complete edge map. Tested on diverse datasets, E2I outperforms state-of-the-art methods in generating realistic inpainting results. GANs improve image inpainting but often suffer from inconsistency and failures. Xiaoning Chen [3] proposed an improved image inpainting method with Deep Convolution GANs (DCGANs). It uses a patch discriminator and contextual loss for accuracy, and a consistency loss based on DCNNs to ensure coherence with the original image. The method is evaluated on two datasets and achieves state-of-the-art results, improving details and authenticity in inpainted images.
--->
 The two main categories of image inpainting techniques are non-learning based or learning based. Popular non-learning based methods include interpolation-based, partial differential equation (PDE)-based, and patch-based inpainting techniques. PatchMatch [1] was a very influential patch-based method that searches for similar patches in the available part of the image, which provided high quality reconstructions while also being efficient.
 
 However, these image inpainting methods require either similar pixels, structures, or patches to be contained within the input image, or required extra information about any holes or missing regions. If the missing region is large, has an arbitrary shape, or contains new or non-repetitive patterns, this constraint can be hard to satisfy. There exist other non-learning based methods that use internet-based retrieval or massive databases of images to search for semantically similar patches [2] to address this issue, but these methods fail when the input image is too different compared to those in the database.
@@ -204,8 +199,8 @@ As before, a few examples are chosen to demonstrate the visual improvements that
 <img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Loss Functions/0.005L1_0.995SSIM_Loss.png">
   <img style="padding-left:6px;padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/0.005L1 + 0.995SSIM/inpainted_00004047.jpg">
   <span style="display:block;float:right;"> L1: 0.0844 <br> L2: 0.0552 <br> PSNR: 12.5826 <br> SSIM: 0.7232</span> <br>
-  <center><em>.</em></center>
-</p> <br>
+  <br>
+</p>
 
 <p align="center">
 <img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Loss Functions/baseline_context_encoders.png">
@@ -223,7 +218,7 @@ As before, a few examples are chosen to demonstrate the visual improvements that
 <img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Loss Functions/0.005L1_0.995SSIM_Loss.png">
   <img style="padding-left:6px;padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/0.005L1 + 0.995SSIM/inpainted_00000119.jpg">
   <span style="display:block;float:right;"> L1: 0.0661 <br> L2: 0.0298 <br> PSNR: 15.2601 <br> SSIM: 0.7060</span> <br>
-  <center><em>.</em></center>
+  <br>
 </p>
 
 <p align="center">
@@ -242,7 +237,7 @@ As before, a few examples are chosen to demonstrate the visual improvements that
 <img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Loss Functions/0.005L1_0.995SSIM_Loss.png">
   <img style="padding-left:6px;padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/0.005L1 + 0.995SSIM/inpainted_00003823.jpg">
   <span style="display:block;float:right;"> L1: 0.0522 <br> L2: 0.0290 <br> PSNR: 15.3750 <br> SSIM: 0.7975</span> <br>
-  <center><em>.</em></center>
+  <br>
 </p>
 
 <p align="center">
@@ -261,7 +256,7 @@ As before, a few examples are chosen to demonstrate the visual improvements that
 <img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Loss Functions/0.005L1_0.995SSIM_Loss.png">
   <img style="padding-left:6px;padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/0.005L1 + 0.995SSIM/inpainted_00002919.jpg">
   <span style="display:block;float:right;"> L1: 0.0789 <br> L2: 0.0415 <br> PSNR: 13.8219 <br> SSIM: 0.7187</span> <br>
-  <center><em>.</em></center>
+  <br>
 </p>
 
 <p align="center">
@@ -280,7 +275,7 @@ As before, a few examples are chosen to demonstrate the visual improvements that
 <img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Loss Functions/0.005L1_0.995SSIM_Loss.png">
   <img style="padding-left:6px;padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/0.005L1 + 0.995SSIM/inpainted_00004299.jpg">
   <span style="display:block;float:right;"> L1: 0.0662 <br> L2: 0.0313 <br> PSNR: 15.0510 <br> SSIM: 0.7267</span> <br>
-  <center><em>.</em></center>
+  <br>
 </p>
 
 <p align="center">
@@ -299,7 +294,7 @@ As before, a few examples are chosen to demonstrate the visual improvements that
 <img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Loss Functions/0.005L1_0.995SSIM_Loss.png">
   <img style="padding-left:6px;padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/0.005L1 + 0.995SSIM/inpainted_00004560.jpg">
   <span style="display:block;float:right;"> L1: 0.0811 <br> L2: 0.0553 <br> PSNR: 12.5762 <br> SSIM: 0.7232</span> <br>
-  <center><em>.</em></center>
+  <br>
 </p>
 
 <p align="center">
@@ -318,7 +313,7 @@ As before, a few examples are chosen to demonstrate the visual improvements that
 <img width="200" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Loss Functions/0.005L1_0.995SSIM_Loss.png">
   <img style="padding-left:6px;padding-right:20px;" width="400" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/Inpainting_Outputs/0.005L1 + 0.995SSIM/inpainted_00000280.jpg">
   <span style="display:block;float:right;"> L1: 0.1020 <br> L2: 0.0716 <br> PSNR: 11.4505 <br> SSIM: 0.7136</span> <br>
-  <center><em>.</em></center>
+  <br>
 </p>
 
 <p align="center">
@@ -384,16 +379,19 @@ Currently, removing objects with arbitrary masks sometimes gives strange artifac
 </p>
 
 
-## Conclusions
+## Conclusion
+In this project, we implemented the baseline Context Encoders model, made model changes to improve visual results, and integrated with an object detection model to automatically detect and remove objects without having to manually draw masks. To modify the baseline Context Encoders model to support arbitrary masks in evaluation, an extra upsampling layer was added and the training and evaluation code was modified to extract arbitrary masks.
 
+The main improvement to the Context Encoders model was the following loss function: 
+<p>$$\mathcal{L}=\lambda_{adv}\mathcal{L}_{adv}+\lambda_{rec}(\lambda_{L1}\mathcal{L}_{L1}+\lambda_{SSIM}(1-\mathcal{L}_{SSIM})).$$ </p>
+This resulted in significant visual improvements in most sample images and gave a slight 1.72% increase in SSIM scores across the validation dataset (this might be more significant if models are trained to convergence). 
 
 ## References
 [1] Connelly Barnes, Eli Shechtman, Adam Finkelstein, and Dan B Goldman. “PatchMatch: A Randomized
 Correspondence Algorithm for Structural Image Editing”. In: *ACM Transactions on Graphics (Proc. SIG-
 GRAPH)* 28.3 (Aug. 2009).
 
-[2] James Hays and Alexei A Efros. “Scene Completion Using Millions of Photographs”. In: *ACM Transactions
-on Graphics (SIGGRAPH 2007)* 26.3 (2007).
+[2] James Hays and Alexei A Efros. “Scene Completion Using Millions of Photographs”. In: *ACM Transactions on Graphics (SIGGRAPH 2007)* 26.3 (2007).
 
 [3] Glenn Jocher, Ayush Chaurasia, and Jing Qiu. *Ultralytics YOLO.* Version 8.0.0. Jan. 2023. url: https://github.com/ultralytics/ultralytics
 
@@ -402,38 +400,27 @@ and C. Lawrence Zitnick. “Microsoft COCO: Common Objects in Context”. In: *C
 2014.* Ed. by David Fleet, Tomas Pajdla, Bernt Schiele, and Tinne Tuytelaars. Cham: Springer International
 Publishing, 2014, pp. 740–755. isbn: 978-3-319-10602-1. 
 
-[5] Deepak Pathak, Philipp Kr ̈ahenb ̈uhl, Jeff Donahue, Trevor Darrell, and Alexei Efros. “Context Encoders:
-Feature Learning by Inpainting”. In: *Computer Vision and Pattern Recognition (CVPR).* 2016. 
+[5] Deepak Pathak, Philipp Kr ̈ahenb ̈uhl, Jeff Donahue, Trevor Darrell, and Alexei Efros. “Context Encoders: Feature Learning by Inpainting”. In: *Computer Vision and Pattern Recognition (CVPR).* 2016. 
 
-[6] Alec Radford, Luke Metz, and Soumith Chintala. *Unsupervised Representation Learning with Deep Convolu-
-tional Generative Adversarial Networks.* 2016. arXiv: 1511.06434 [cs.LG].
+[6] Alec Radford, Luke Metz, and Soumith Chintala. *Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks.* 2016. arXiv: 1511.06434 [cs.LG].
 
-[7] Joseph Redmon, Santosh Divvala, Ross Girshick, and Ali Farhadi. “You Only Look Once: Unified, Real-Time
-Object Detection”. In: *IEEE Conference on Computer Vision and Pattern Recognition (CVPR).* 2016,
+[7] Joseph Redmon, Santosh Divvala, Ross Girshick, and Ali Farhadi. “You Only Look Once: Unified, Real-Time Object Detection”. In: *IEEE Conference on Computer Vision and Pattern Recognition (CVPR).* 2016,
 pp. 779–788. doi: 10.1109/CVPR.2016.
 
-[8] Roman Suvorov, Elizaveta Logacheva, Anton Mashikhin, Anastasia Remizova, Arsenii Ashukha, Aleksei Sil-
-vestrov, Naejin Kong, Harshith Goka, Kiwoong Park, and Victor Lempitsky. “Resolution-robust Large Mask
+[8] Roman Suvorov, Elizaveta Logacheva, Anton Mashikhin, Anastasia Remizova, Arsenii Ashukha, Aleksei Silvestrov, Naejin Kong, Harshith Goka, Kiwoong Park, and Victor Lempitsky. “Resolution-robust Large Mask
 Inpainting with Fourier Convolutions”. In: *arXiv preprint arXiv:2109.07161* (2021).
 
-[9] Raymond A. Yeh$^{\*}$, Chen Chen$^{\*}$, Teck Yian Lim, Schwing Alexander G., Mark Hasegawa-Johnson, and Minh
-N. Do. “Semantic Image Inpainting with Deep Generative Models”. In: *Proceedings of the IEEE Conference
-on Computer Vision and Pattern Recognition.* $^{\*}$ equal contribution. 2017.
+[9] Raymond A. Yeh$^{\*}$, Chen Chen$^{\*}$, Teck Yian Lim, Schwing Alexander G., Mark Hasegawa-Johnson, and Minh N. Do. “Semantic Image Inpainting with Deep Generative Models”. In: *Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition.* $^{\*}$ equal contribution. 2017.
 
-[10] Jiahui Yu, Zhe Lin, Jimei Yang, Xiaohui Shen, Xin Lu, and Thomas S Huang. “Generative Image Inpainting
-with Contextual Attention”. In: *arXiv preprint arXiv:1801.07892* (2018).
+[10] Jiahui Yu, Zhe Lin, Jimei Yang, Xiaohui Shen, Xin Lu, and Thomas S Huang. “Generative Image Inpainting with Contextual Attention”. In: *arXiv preprint arXiv:1801.07892* (2018).
 
-[11] Hang Zhao, Orazio Gallo, Iuri Frosio, and Jan Kautz. “Loss Functions for Image Restoration With Neural
-Networks”. In: *IEEE Transactions on Computational Imaging 3.1* (2017), pp. 47–57. doi: 10.1109/TCI.
-2016.2644865.
+[11] Hang Zhao, Orazio Gallo, Iuri Frosio, and Jan Kautz. “Loss Functions for Image Restoration With Neural Networks”. In: *IEEE Transactions on Computational Imaging 3.1* (2017), pp. 47–57. doi: 10.1109/TCI. 2016.2644865.
 
 [12] Haitian Zheng, Zhe Lin, Jingwan Lu, Scott Cohen, Eli Shechtman, Connelly Barnes, Jianming Zhang, Ning
-Xu, Sohrab Amirghodsi, and Jiebo Luo. “CM-GAN: Image Inpainting with Cascaded Modulation GAN and
-Object-Aware Training”. In: *arXiv preprint arXiv:2203.11947* (2022).
+Xu, Sohrab Amirghodsi, and Jiebo Luo. “CM-GAN: Image Inpainting with Cascaded Modulation GAN and Object-Aware Training”. In: *arXiv preprint arXiv:2203.11947* (2022).
 
 [13] Bolei Zhou, Agata Lapedriza, Aditya Khosla, Aude Oliva, and Antonio Torralba. “Places: A 10 million
-Image Database for Scene Recognition”. In: *IEEE Transactions on Pattern Analysis and Machine Intelligence*
-(2017)
+Image Database for Scene Recognition”. In: *IEEE Transactions on Pattern Analysis and Machine Intelligence* (2017)
 
 ## Supplementary Material
 Extra images are provided below in larger versions than above:
