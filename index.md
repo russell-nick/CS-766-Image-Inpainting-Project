@@ -22,12 +22,6 @@ See [here](assets/resources/CS 766 Presentation.pdf){:target="_blank"} for the f
 
 ## Introduction
 Image inpainting is the task of realistically filling or reconstructing parts of an image that are damaged or missing. Traditional methods seek to solve this problem by using sequential algorithms to fill missing patches, but learning-based methods with CNNs and GANs have become much more popular and generally provide significantly better results. Context Encoders was a very influencial image inpainting model that produces semantically similar results with sharp features. However, it can still generate noisy patches that clearly do not blend into the scene. We seek to build on this by improving the learning-based Context Encoder model with a joint reconstruction loss specifically designed for visual appearance, along with integrating an object detection model to develop a system for automatically removing undesired objects or properties within an image.
-<!--
-<p align="center">
-<img width="700" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/context_encoders_teaser.jpeg">
-  <center><em> Image Inpainting Example (Image from https://www.cs.cmu.edu/~dpathak/context_encoder/) </em></center>
-</p>
--->
 
 ## Motivation
 As technology advances and the world becomes more digital, there are increasingly many applications for image inpainting. One can use image inpainting to edit photos and remove artifacts, reconstruct damaged regions of physical photographs or paintings, remove unwanted objects from a scene, or recover missing information from occluded regions. This is not only useful to large groups such as a museum recovering damaged artwork or text, but the average person can take advantage of this to enhance image quality and aesthetics in unideal scenarios. An automatic object removal system also allows users to remove undesired image properties without needing any technical expertise or knowledge of image editing software.
