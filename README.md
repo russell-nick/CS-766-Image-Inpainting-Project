@@ -8,6 +8,7 @@ The project webpage is available at https://russell-nick.github.io/CS-766-Image-
 2. [Installation and Setup](#installation-and-setup)
 3. [Training](#training)
 4. [Evaluation](#evaluation)
+5. [References](#references)
 
 ## Project Demo
 To make it easier for people to quickly use this project without going through installation and setup steps, a self-contained Python notebook is available [here](https://colab.research.google.com/drive/1fLbRK4v8gAwTNMn0_JT8cW2twOn1feD5?usp=sharing).
@@ -118,3 +119,8 @@ A list of object classes that are supported by our automatic object removal is g
 ```bash
 python eval.py --model_checkpoint {path_to_checkpoint} --image_path {path_to_image} --remove 0 2
 ```
+
+## References
+Parts of the baseline Context Encoder model, training, and dataset code before making modifications to support arbitrary masks, implementing the proposed joint reconstruction loss, implementing evaluation and automatic object removal, etc. were based off of
+1. https://github.com/eriklindernoren/PyTorch-GAN/tree/master/implementations/context_encoder
+2. https://github.com/fbuchert/context-encoder-pytorch
