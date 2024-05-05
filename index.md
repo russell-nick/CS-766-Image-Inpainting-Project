@@ -22,9 +22,19 @@ See [here](assets/resources/CS 766 Presentation.pdf){:target="_blank"} for the f
 
 ## Introduction
 Image inpainting is the task of realistically filling or reconstructing parts of an image that are damaged or missing. Traditional methods seek to solve this problem by using sequential algorithms to fill missing patches, but learning-based methods with CNNs and GANs have become much more popular and generally provide significantly better results. Context Encoders was a very influencial image inpainting model that produces semantically similar results with sharp features. However, it can still generate noisy patches that clearly do not blend into the scene. We seek to build on this by improving the learning-based Context Encoder model with a joint reconstruction loss specifically designed for visual appearance, along with integrating an object detection model to develop a system for automatically removing undesired objects or properties within an image.
+<!--
+<p align="center">
+<img width="700" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/context_encoders_teaser.jpeg">
+  <center><em> Image Inpainting Example (Image from https://www.cs.cmu.edu/~dpathak/context_encoder/) </em></center>
+</p>
+-->
 
 ## Motivation
 As technology advances and the world becomes more digital, there are increasingly many applications for image inpainting. One can use image inpainting to edit photos and remove artifacts, reconstruct damaged regions of physical photographs or paintings, remove unwanted objects from a scene, or recover missing information from occluded regions. This is not only useful to large groups such as a museum recovering damaged artwork or text, but the average person can take advantage of this to enhance image quality and aesthetics in unideal scenarios. An automatic object removal system also allows users to remove undesired image properties without needing any technical expertise or knowledge of image editing software.
+<p align="center">
+<img width="800" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/lama_building.png">
+  <center><em> Object Removal Example (Image from https://advimman.github.io/lama-project/) </em></center>
+</p>
 
 ## Previous Work
 The two main categories of image inpainting techniques are non-learning based or learning based. Popular non-learning based methods include interpolation-based, partial differential equation (PDE)-based, and patch-based inpainting techniques. PatchMatch [1] was a very influential patch-based method that searches for similar patches in the available part of the image, which provided high quality reconstructions while also being efficient.
@@ -91,7 +101,7 @@ Below is a list of experiments and modifications that we made:
 For the image inpainting task, we used the MiniPlaces dataset, which is a subset of MIT’s Places dataset [13] that only contains 100,000 128x128 images from 100 scene categories.
 <p align="center">
 <img width="800" src="https://raw.githubusercontent.com/russell-nick/CS-766-Image-Inpainting-Project/gh-pages/assets/images/teaser.jpg">
-  <center><em>MiniPlaces Example Images</em></center>
+  <center><em>MiniPlaces Example Images (https://github.com/CSAILVision/miniplaces)</em></center>
 </p>
 
 We used a pre-trained YOLOv8 model for object segmentation and mask extraction due to resource constraints. This model was trained on Microsoft's COCO dataset [4], a large-scale object detection, segmentation, and captioning dataset with 2.5 million labeled object instances in 328k images. Microsoft COCO supports the detection of 81 object types. 
